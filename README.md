@@ -1,6 +1,6 @@
 # enigma
 work in progress. simulation of the [historic Enigma rotor cypher device
-] (https://en.wikipedia.org/wiki/Enigma_machine) that was used during WWII.
+](https://en.wikipedia.org/wiki/Enigma_machine) that was used during WWII.
 
 ## current implementation 
 ``` 
