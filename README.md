@@ -4,7 +4,7 @@ work in progress. simulation of the [historic Enigma rotor cypher device
 
 ## current implementation 
 ``` 
-import enigma-class.py
+import enigma_class
 
 
 # rotor settings (numbers from 0 to 25), three up to five rotators e.g.
