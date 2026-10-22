@@ -1,6 +1,7 @@
 # enigma
 work in progress. simulation of the [historic Enigma rotor cypher device
 ](https://en.wikipedia.org/wiki/Enigma_machine) that was used during WWII.
+Actual Enigma keyboard only had A–Z; spaces weren't encrypted as literal spaces. If historical fidelity matters, preprocess the text into letters only or whatever convention you choose.
 
 ## current implementation 
 ``` 
