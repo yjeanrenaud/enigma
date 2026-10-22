@@ -14,7 +14,10 @@ rotors = [3, 17, 7]
 ring_settings = [2, 15, 7]
 
 # plugboard settings (list of pairs of letters) usually 4 to 5 pairs e.g.
-plugboard = [0, 5, 11, 22] # means: A<==>F, J<==>V
+plugboard = list(range(26))
+plugboard[0], plugboard[5] = 5, 0     # A <-> F
+plugboard[9], plugboard[21] = 21, 9   # J <-> V
+# all other plug board pins stay in order
 
 # now create a new Enigma machine with the given settings (based on the daily codebook)
 enigma = Enigma(rotors, ring_settings, plugboard)
