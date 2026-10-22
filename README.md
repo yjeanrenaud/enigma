@@ -4,31 +4,46 @@ work in progress. simulation of the [historic Enigma rotor cypher device
 
 ## current implementation 
 ``` 
-import enigma_class
+#!/usr/bin/env python3
+from enigma_class import Enigma 
 
 
-# rotor settings (numbers from 0 to 25), three up to five rotators e.g.
-rotors = [3, 17, 7]
+# Rotor order: left, middle, right
+rotors = ["I", "II", "III"]
 
-# ring settings (numbers from 0 to 25), three up to five rotators e.g.
+# Starting rotor positions
+# 0 = A, 1 = B, ..., 25 = Z
+positions = [0, 0, 0]
+
+
+# Ring settings 
+# (numbers from 0 to 25), three up to five rotators e.g.
 ring_settings = [2, 15, 7]
 
 # plugboard settings (list of pairs of letters) usually 4 to 5 pairs e.g.
-plugboard = list(range(26))
-plugboard[0], plugboard[5] = 5, 0     # A <-> F
-plugboard[9], plugboard[21] = 21, 9   # J <-> V
-# all other plug board pins stay in order
+plugboard = [
+    ("A", "F"),
+    ("J", "V"),
+    ("G", "L"),
+    ("D", "M")
+]
 
 # now create a new Enigma machine with the given settings (based on the daily codebook)
-enigma = Enigma(rotors, ring_settings, plugboard)
+enigma = Enigma(rotors, positions, ring_settings, plugboard)
 
 # encrypt a message
 message = "HELLO WORLD"
-##should most likely be "XHEL LOXW ORLD" as whitepaces were substituted by X, chars grouped by four etc.
+##should most likely be "VCIIR RHHRB" as whitepaces were substituted by X, chars grouped by four etc.
 
 ciphertext = enigma.encrypt(message)
-print(ciphertext)  # output: "ZPFVHYQAKG"
+print(ciphertext)  # output: "VCIIR RHHRB"
 
+# Reset the rotors and rings
+enigma.reset()
+
+# actually, decrypt = encrypt
 # decrypt ciphertext
 plaintext = enigma.decrypt(ciphertext)
-print(plaintext)  # output: "HELLOWORLD"
+print(plaintext)  # output: "HELLO WORLD"
+
+```
